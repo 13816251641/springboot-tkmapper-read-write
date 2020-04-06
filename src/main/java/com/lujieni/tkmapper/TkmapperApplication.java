@@ -5,7 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.**.dao") //扫描的mapper接口
+/*扫描mapper接口,mybatis和tkmapper都需要*/
+@MapperScan("com.**.dao")
 public class TkmapperApplication {
 
     public static void main(String[] args) {

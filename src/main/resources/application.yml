@@ -1,5 +1,9 @@
 server:
     port: 8080
+logging:
+    level:
+        com.lujieni.tkmapper.dao: debug
+
 spring:
     datasource:
         username: root

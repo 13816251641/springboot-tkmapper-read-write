@@ -2,6 +2,7 @@ package com.lujieni.tkmapper.domain.vo;
 
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 @Data
 public class StudentVO {
