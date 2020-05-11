@@ -6,9 +6,13 @@ logging:
 
 spring:
     datasource:
-        username: root
-        password: root
-        url: jdbc:mysql://localhost:3306/springboot-tkmapper
-        driver-class-name: com.mysql.jdbc.Driver
-    #mybatis:
-    #mapper-locations: classpath:mapping/*Mapping.xml
+        master:
+            username: root
+            password: root
+            url: jdbc:mysql://localhost:3306/springboot-tkmapper
+            driver-class-name: com.mysql.jdbc.Driver
+        slave:
+            username: root
+            password: root
+            url: jdbc:mysql://localhost:3306/springboot-tkmapper-slave
+            driver-class-name: com.mysql.jdbc.Driver

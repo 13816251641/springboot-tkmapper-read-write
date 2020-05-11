@@ -15,7 +15,9 @@ public class StudentPO extends BasicEntity {
     @Column(name="name")
     private String name;
 
-
     @Column(name="age")
     private Integer age;
+
+    @Column(name="gender")
+    private String gender;
 }

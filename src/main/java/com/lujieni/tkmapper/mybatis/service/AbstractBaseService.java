@@ -1,10 +1,9 @@
 package com.lujieni.tkmapper.mybatis.service;
-
-import com.lujieni.tkmapper.mybatis.basedao.BaseDao;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * @param <D>
  * @param <T>
  */
-public abstract class AbstractBaseService<D extends BaseDao<T>, T> implements IBaseService<T> {
+public abstract class AbstractBaseService<D extends Mapper<T>, T> implements IBaseService<T> {
 
     /*
         @Autowired
