@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2020/4/16
  *
  */
-@Configuration
 public class ContextDatasourceTypeHolder {
     /*
        ThreadLocal为static的唯一原因就是别的方法都是static的

@@ -19,6 +19,7 @@ import java.lang.reflect.Method;
 public class DatasourceChangeAspect {
 
     /**
+     * 因为Spring基于动态代理，所以Spring只支持方法连接点!!!!
      * 根据注解上指定的数据源类型切换数据源
      * @param joinPoint
      */

@@ -25,7 +25,6 @@ public class StudentController {
     @RequestMapping(value = "/v1/findStudentById", method = RequestMethod.GET)
     public StudentPO findStudentById(){
         StudentPO studentPO = studentService.findStudentById();
-        System.out.println(studentPO);
         return studentPO;
     }
 

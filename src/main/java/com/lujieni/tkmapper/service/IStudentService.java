@@ -12,7 +12,6 @@ import java.util.List;
 public interface IStudentService {
     List<StudentVO> findStudentByName();
 
-    @AnotherDatasource("slave")
     StudentPO findStudentById();
 
     Integer insertOne();

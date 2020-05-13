@@ -25,7 +25,8 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
     }
 
     @Override
-    @Transactional //自己配置数据源,事务也是能生效的
+    //@Transactional 自己配置数据源,事务也是能生效的
+    @AnotherDatasource
     public Integer insertOne() {
         int num = dao.insert(new StudentPO().setName("张飞2").setAge(77));
         int i = 5/0;

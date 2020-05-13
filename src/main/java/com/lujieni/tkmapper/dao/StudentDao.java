@@ -8,7 +8,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 @Repository
-public interface StudentDao extends Mapper<StudentPO>  { //BaseDao<StudentPO>
+public interface StudentDao extends Mapper<StudentPO>  {
 
         List<StudentVO> findStudentByName(String name);
 
