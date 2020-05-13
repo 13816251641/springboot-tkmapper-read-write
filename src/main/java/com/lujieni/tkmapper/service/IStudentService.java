@@ -14,7 +14,7 @@ public interface IStudentService {
 
     StudentPO findStudentById();
 
-    Integer insertOne();
+    Integer insertOne() throws Exception;
 
 
 }

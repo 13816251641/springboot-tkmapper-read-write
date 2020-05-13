@@ -25,9 +25,16 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
     }
 
     @Override
-    //@Transactional 自己配置数据源,事务也是能生效的
+    /*
+        自己配置数据源,事务也是能生效的
+        @Transactional在非public修饰的方法使用并不会抛出异常,但是会导致事务失效
+        @Transactional(rollbackFor = Exception.class) @Transactional默认只回滚运行时异常,这样配置运行和非运行时异常都回滚
+        @Transactional(noRollbackFor = ArithmeticException.class) 5/0 数学异常不回滚
+        @Transactional(rollbackFor = NullPointerException.class) ArithmeticException也会回滚,这点要注意
+     */
+    @Transactional(rollbackFor = NullPointerException.class)
     @AnotherDatasource
-    public Integer insertOne() {
+    public Integer insertOne() throws Exception {
         int num = dao.insert(new StudentPO().setName("张飞2").setAge(77));
         int i = 5/0;
         return num;

@@ -29,7 +29,8 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/v1/insertOne", method = RequestMethod.GET)
-    public Integer insertOne(){
-        return studentService.insertOne();
+    public Integer insertOne() throws Exception {
+        Integer integer = studentService.insertOne();
+        return integer;
     }
 }
