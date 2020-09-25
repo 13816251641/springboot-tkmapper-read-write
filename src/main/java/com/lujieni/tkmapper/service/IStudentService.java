@@ -12,7 +12,7 @@ import java.util.List;
 public interface IStudentService {
     List<StudentVO> findStudentByName();
 
-    StudentPO findStudentById();
+    StudentPO findStudentById(Integer id);
 
     Integer insertOne() throws Exception;
 

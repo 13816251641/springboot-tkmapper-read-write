@@ -6,6 +6,7 @@ import com.lujieni.tkmapper.dao.StudentDao;
 import com.lujieni.tkmapper.domain.po.StudentPO;
 import com.lujieni.tkmapper.domain.vo.StudentVO;
 import com.lujieni.tkmapper.service.IStudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,15 +15,29 @@ import java.util.List;
 
 @Service
 public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentPO> implements IStudentService {
-    @Override
-    public List<StudentVO> findStudentByName() {
-        return dao.findStudentByName("陆捷旎");
-    }
+
+    @Autowired
+    private HelloServiceImpl helloService;
 
     @Override
-    @AnotherDatasource
-    public StudentPO findStudentById() {
-        return dao.selectByPrimaryKey(1);
+    public List<StudentVO> findStudentByName() {
+        return super.dao.findStudentByName("陆捷旎");
+    }
+
+
+    @Override
+    @AnotherDatasource(value = "slave")
+    public StudentPO findStudentById(Integer id) {
+        System.out.println("findStudentById");
+        StudentPO show = show(id);//S
+        StudentPO show2 = helloService.show(id);//M
+        return super.dao.selectByPrimaryKey(id);//M
+    }
+
+
+    @AnotherDatasource(value = "master")
+    public StudentPO show(Integer id){
+        return super.dao.selectByPrimaryKey(id);
     }
 
     @Override

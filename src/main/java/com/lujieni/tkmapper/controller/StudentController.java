@@ -24,7 +24,7 @@ public class StudentController {
 
     @RequestMapping(value = "/v1/findStudentById", method = RequestMethod.GET)
     public StudentPO findStudentById(){
-        StudentPO studentPO = studentService.findStudentById();
+        StudentPO studentPO = studentService.findStudentById(1);
         return studentPO;
     }
 

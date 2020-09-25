@@ -1,13 +1,17 @@
 package com.lujieni.tkmapper.dynamic;
 
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @Auther lujieni
  * @Date 2020/4/16
  *
  */
-public class ContextDatasourceTypeHolder {
+public final class ContextDatasourceTypeHolder {
+
+    private ContextDatasourceTypeHolder(){
+
+    }
+
     /*
        ThreadLocal为static的唯一原因就是别的方法都是static的
      */

@@ -30,10 +30,10 @@ public class DatasourceChangeAspect {
             Class<?> targetClazz = joinPoint.getTarget().getClass();
             /* 获取执行的方法名 */
             String methodName = joinPoint.getSignature().getName();
-            /* 获取此方法的参数列表 */
+            /* 获取此方法的参数列表,[java.lang.Integer] */
             Class<?>[] par = ((MethodSignature) joinPoint.getSignature()).getParameterTypes();
             /* 获取到实际执行的方法 */
-            Method objMethod = targetClazz.getMethod(((MethodSignature) joinPoint.getSignature()).getName(), par);
+            Method objMethod = targetClazz.getMethod(methodName,par);
             //从执行的方法上获取注解
             AnotherDatasource annotation = objMethod.getAnnotation(AnotherDatasource.class);
             if (annotation != null) {
