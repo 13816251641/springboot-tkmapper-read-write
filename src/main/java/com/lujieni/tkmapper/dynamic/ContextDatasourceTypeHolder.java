@@ -31,7 +31,7 @@ public final class ContextDatasourceTypeHolder {
     }
 
     /**
-     * 每次使用完ThreadLocal，都调用它的remove()方法，清除数据
+     * 每次使用完ThreadLocal，必须调用它的remove()方法，清除数据!!!
      */
     public static void clearDatasourceType() {
         datasourceTypeHolder.remove();
