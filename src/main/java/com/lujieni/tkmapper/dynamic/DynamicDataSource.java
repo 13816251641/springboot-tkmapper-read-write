@@ -14,6 +14,10 @@ import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
+    /**
+     * 从Holder中获取当前操作的数据源类型，交由spring去获取相应的数据源
+     * @return
+     */
     @Override
     protected Object determineCurrentLookupKey() {
         return ContextDatasourceTypeHolder.getDatasourceType();

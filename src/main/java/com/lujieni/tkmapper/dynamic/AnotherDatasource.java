@@ -6,8 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ ElementType.METHOD, ElementType.TYPE })
-@Retention(RetentionPolicy.RUNTIME)
+@Target({ ElementType.METHOD, ElementType.TYPE }) //可以定义在方法和类上
+@Retention(RetentionPolicy.RUNTIME) //运行有效,存在class字节码文件中
 public @interface AnotherDatasource {
 
     /**

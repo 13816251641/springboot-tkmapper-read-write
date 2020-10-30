@@ -14,8 +14,8 @@ import java.lang.reflect.Method;
  * @Date 2020/4/16
  */
 @Order(Integer.MIN_VALUE)// 保证@AnotherDatasource的切面在@Transactional之前执行
-@Aspect
-@Component
+@Aspect    //切面类上必须要加
+@Component //必须要,否则切面类不生效
 public class DatasourceChangeAspect {
 
     /**
@@ -34,6 +34,7 @@ public class DatasourceChangeAspect {
             Class<?>[] par = ((MethodSignature) joinPoint.getSignature()).getParameterTypes();
             /* 获取到实际执行的方法 */
             Method objMethod = targetClazz.getMethod(methodName,par);
+            // Method objMethod = targetClazz.getMethod(methodName);只是获取无参方法有用
             //从执行的方法上获取注解
             AnotherDatasource annotation = objMethod.getAnnotation(AnotherDatasource.class);
             if (annotation != null) {

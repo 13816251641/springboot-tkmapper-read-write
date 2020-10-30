@@ -29,8 +29,8 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
     @AnotherDatasource(value = "slave")
     public StudentPO findStudentById(Integer id) {
         System.out.println("findStudentById");
-        StudentPO show = show(id);//S
-        StudentPO show2 = helloService.show(id);//M
+        StudentPO show = show(id);//S 方法中直接调用本类方法不会代理
+        StudentPO show2 = helloService.show(id);//M 方法中调用其他类的方法会代理
         return super.dao.selectByPrimaryKey(id);//M
     }
 
@@ -40,7 +40,6 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
         return super.dao.selectByPrimaryKey(id);
     }
 
-    @Override
     /*
         自己配置数据源,事务也是能生效的
         @Transactional在非public修饰的方法使用并不会抛出异常,但是会导致事务失效
@@ -48,6 +47,7 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
         @Transactional(noRollbackFor = ArithmeticException.class) 5/0 数学异常不回滚
         @Transactional(rollbackFor = NullPointerException.class) ArithmeticException也会回滚,这点要注意
      */
+    @Override
     @Transactional(rollbackFor = Exception.class)
     @AnotherDatasource
     public Integer insertOne() throws Exception {
