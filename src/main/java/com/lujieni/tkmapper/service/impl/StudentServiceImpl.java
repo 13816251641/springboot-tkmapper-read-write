@@ -29,9 +29,14 @@ public class StudentServiceImpl extends AbstractBaseService<StudentDao, StudentP
     @AnotherDatasource(value = "slave")
     public StudentPO findStudentById(Integer id) {
         System.out.println("findStudentById");
-        StudentPO show = show(id);//S 方法中直接调用本类方法不会代理
-        StudentPO show2 = helloService.show(id);//M 方法中调用其他类的方法会代理
-        return super.dao.selectByPrimaryKey(id);//M
+
+        /*
+         StudentPO show = show(id);//S 方法中直接调用本类方法不会发生代理
+         StudentPO show2 = helloService.show(id);//M 方法中调用其他类的方法会代理
+         return super.dao.selectByPrimaryKey(id);//M
+        */
+        helloService.insert();//先查从,在插入主,主中的事务是生效的
+        return null;
     }
 
 
