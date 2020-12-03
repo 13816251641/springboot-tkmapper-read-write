@@ -15,7 +15,7 @@ public final class ContextDatasourceTypeHolder {
     /*
        ThreadLocal为static的唯一原因就是别的方法都是static的
      */
-    private static ThreadLocal<String> datasourceTypeHolder = new ThreadLocal<>();
+    private static final ThreadLocal<String> datasourceTypeHolder = new ThreadLocal<>();
     /**
      * 设置当前操作的数据源类型
      */
